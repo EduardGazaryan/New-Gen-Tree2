@@ -1,0 +1,376 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.page h4 {
+    height: 40px;
+    padding: 5px;
+    
+  
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 40px; /* Добавляем отступ сверху */
+    height: 100vh;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+
+}
+
+
+.frame {
+    position: relative;
+    width: 350px;
+    padding: 10px;
+    font-size: 18px;
+    color: #333;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.frame::before,
+.frame::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 30px;
+    background-color: gold;
+    z-index: -1;
+}
+
+.frame::before {
+    top: -15px;
+    border-radius: 25px 25px 0 0;
+}
+
+.frame::after {
+    bottom: -15px;
+    border-radius: 0 0 25px 25px;
+}
+
+
+.book {
+    width: 330px;
+    height: 530px;
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
+    perspective: 1500px;
+}
+
+.page {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateY(90deg);
+    backface-visibility: hidden;
+    transition: all 0.6s ease-in-out;
+    text-align: center;
+    line-height: 550px;
+    font-size: 24px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow-y: auto; /* Включаем вертикальный скроллинг */
+    
+}
+
+.page p span {
+    border: 2px solid rgb(244, 237, 237); /* Рамка толщиной 2px черного цвета */
+    padding: 4px; /* Внутренний отступ от рамки до текста */
+    border-radius: 20%;
+}
+
+
+.page p:first-of-type {
+    font-size: 24px; /* Увеличенный размер шрифта для первого абзаца */
+    text-align: center; /* Центрирование текста */
+    border: 2px solid rgb(239, 234, 234); /* Рамка толщиной 2px черного цвета */
+    padding: 10px; /* Внутренний отступ от рамки до текста */
+    margin-bottom: 20px; /* Отступ снизу для разделения с другими элементами */
+    border-radius: 5%;
+}
+
+
+.page p {
+    margin-bottom: 10px; /* Расстояние между абзацами */
+    font-size: 18px;      /* Размер шрифта */
+    line-height: 1.5;     /* Межстрочный интервал */
+    text-align: justify;  /* Выравнивание текста по ширине */
+    justify-content: space-between; 
+}
+
+.page.active {
+    transform: translate(-50%, -50%) rotateY(0deg);
+    z-index: 10;
+}
+
+button {
+    position: fixed;
+    bottom: 20px;
+    padding: 10px 15px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: #007bff;
+    color: rgb(224, 27, 27);
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+
+
+button:nth-of-type(1) {
+    left: 10px;
+}
+
+button:nth-of-type(2) {
+    right: 10px;
+}
+
+
+a.button {
+    width: 20px;
+    height: 10px;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+a.button:hover {
+    background-color: #45a049;
+}
+        
+
+
+#page-select {
+    position: absolute;
+    bottom: 20px; /* Отступ снизу */
+    left: 50%; /* Центрирование по горизонтали */
+    transform: translateX(-50%); /* Смещение для точного центрирования */
+}
+
+
+
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin: 20px auto 0;
+}
+
+
+button, select {
+    padding: 10px 15px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+button:hover, select:hover {
+    background-color: #0056b3;
+}
+
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath fill='%23fff' d='M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z'/%3E%3C/svg%3E");
+    background-position: right 12px top 50%;
+    background-repeat: no-repeat;
+    padding-right: 35px;
+}
+
+
+
+p {
+    display: flex; /* Включаем Flexbox */
+    justify-content: space-betweenc; /* Размещаем элементы по краям */
+}
+
+p span {
+    border: 2px solid black; /* Рамка толщиной 2px черного цвета */
+    padding: 4px; /* Внутренний отступ от рамки до текста */
+}
+
+#mainButton {
+    position: fixed;
+    bottom: 10px; /* Расстояние от нижнего края экрана */
+    left: 50%; /* Центрирование по горизонтали */
+    transform: translateX(-50%); /* Смещение для точного центрирования */
+    width: 190px;
+    height: 30px;
+    background-color: rgb(63, 3, 242);
+    color: white;
+    line-height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic; /* Наклонный текст */
+    
+}
+
+
+/* Убираем любые лишние стили, которые могут влиять на позицию кнопки */
+.frame {
+    position: relative;
+}
+
+#searchForm {
+    display: inline-flex; /* Использование inline-flex для горизонтального расположения */
+    align-items: center;
+}
+
+#searchInput,
+#searchForm button {
+    font-size: 16px;
+    padding: 8px;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#searchInput {
+    width: 200px; /* Ширина поля ввода */
+    margin-right: 10px; /* Отступ между полем ввода и кнопкой */
+}
+
+#searchForm button {
+    background-color: #4CAF50; /* Цвет фона кнопки */
+    color: white; /* Цвет текста кнопки */
+    cursor: pointer; /* Указатель мыши на кнопке */
+    border: none; /* Убираем границу вокруг кнопки */
+}
+
+#searchForm button:hover {
+    background-color: #45a049; /* Цвет фона кнопки при наведении */
+}
+
+
+/* Удаление фиксированного позиционирования кнопки */
+button {
+    position: static; /* Вместо fixed */
+    bottom: auto; /* Сбрасываем значение */
+    left: auto; /* Сбрасываем значение */
+    right: auto; /* Сбрасываем значение */
+}
+
+/* Устранение конфликта с flexbox */
+.frame {
+    display: block; /* Используем блочное отображение */
+}
+
+#searchForm {
+    display: inline-flex; /* Гарантируем, что кнопка и поле ввода располагаются в одной строке */
+    align-items: center;
+}
+
+#searchInput {
+    width: 200px; /* Определяем ширину поля ввода */
+    margin-right: 10px; /* Оставляем небольшой отступ между полем ввода и кнопкой */
+}
+
+#searchForm button {
+    background-color: #4CAF50; /* Определяем цвет фона кнопки */
+    color: white; /* Определяем цвет текста кнопки */
+    cursor: pointer; /* Указатель мыши на кнопке */
+    border: none; /* Убираем границу вокруг кнопки */
+    padding: 8px; /* Устанавливаем отступы внутри кнопки */
+    border-radius: 4px; /* Округление углов кнопки */
+}
+
+#searchForm button:hover {
+    background-color: #45a049; /* Меняем цвет фона кнопки при наведении */
+}
+
+
+
+.social-icons {
+    display: flex;
+    justify-content: space-between;
+    gap: 100px; /* Отступ между иконками */
+    margin-top: 40px; /* Отступ сверху */
+}
+
+.social-icons a {
+    display: inline-block;
+}
+
+.social-icons img {
+    vertical-align: middle; /* Устраняет лишнее пространство под изображением */
+}
+
+
+
+
+
+  
+  .icon {
+    margin-right: 10px; /* Отступ между иконками */
+  }
+  
+  .home-button {
+    padding: 8px 16px; /* Размеры кнопки */
+    background-color: #4CAF50; /* Цвет фона кнопки */
+    color: white; /* Цвет текста кнопки */
+    border: none; /* Убираем рамку вокруг кнопки */
+    cursor: pointer; /* Указатель мыши меняет вид на руку при наведении */
+  }
+  
+
+/* Стилизация контейнера */
+.container {
+    display: flex; /* Используем Flexbox для выравнивания */
+    justify-content: space-between; /* Распределяем элементы равномерно */
+    align-items: center; /* Выравниваем элементы по вертикали */
+    margin-top: 20px; /* Небольшой отступ сверху */
+}
+
+/* Стилизация кнопки */
+.button {
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    background-color: #007BFF; /* Синий фон кнопки */
+    color: white; /* Белый текст */
+    padding: 8px 12px; /* Внутренние отступы */
+    border-radius: 4px; /* Скругленные углы */
+    transition: all 0.3s ease-in-out; /* Анимация при наведении */
+}
+
+/* Ховер эффект для кнопки */
+.button:hover {
+    background-color: #0056b3; /* Темнее синий при наведении */
+    transform: scale(1.05); /* Увеличение размера при наведении */
+}
+
+/* Общие стили для ссылок на социальные сети */
+.social-icons a {
+    display: inline-block; /* Чтобы иконки стояли рядом */
+    margin: 0 10px; /* Отступы слева и справа */
+}
+
+/* Удаляем подчеркивание у ссылок */
+a {
+    text-decoration: none;
+}
+
